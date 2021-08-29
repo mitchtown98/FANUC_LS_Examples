@@ -1,0 +1,66 @@
+/PROG  PRGSEL_MSG
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "FAULT MESSAGES";
+PROG_SIZE	= 691;
+CREATE		= DATE 17-04-05  TIME 13:31:08;
+MODIFIED	= DATE 17-10-02  TIME 17:29:02;
+FILE_NAME	= GRIP_MSG;
+VERSION		= 0;
+LINE_COUNT	= 39;
+MEMORY_SIZE	= 1175;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= *,*,*,*,*;
+CONTROL_CODE	= 00001000 00000000;
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  CALL USERCLR    ;
+   2:  R[44:ALARM NUMBER]=AR[1]    ;
+   3:  JMP LBL[R[44]] ;
+   4:   ;
+   5:  LBL[1] ;
+   6:  MESSAGE[PART MODEL NOT SELECTED] ;
+   7:  MESSAGE[ON HMI.] ;
+   8:  JMP LBL[9999] ;
+   9:   ;
+  10:  LBL[2] ;
+  11:  JMP LBL[9999] ;
+  12:   ;
+  13:  LBL[3] ;
+  14:  JMP LBL[9999] ;
+  15:   ;
+  16:  LBL[4] ;
+  17:  JMP LBL[9999] ;
+  18:   ;
+  19:  LBL[5] ;
+  20:  JMP LBL[9999] ;
+  21:   ;
+  22:  LBL[6] ;
+  23:  JMP LBL[9999] ;
+  24:   ;
+  25:  LBL[7] ;
+  26:  JMP LBL[9999] ;
+  27:   ;
+  28:  LBL[8] ;
+  29:  JMP LBL[9999] ;
+  30:   ;
+  31:  LBL[9] ;
+  32:  JMP LBL[9999] ;
+  33:   ;
+  34:  LBL[10] ;
+  35:  JMP LBL[9999] ;
+  36:   ;
+  37:  LBL[9999:END] ;
+  38:  DO[R[109]]=PULSE,5.0sec ;
+  39:  DO[56:OFF:PROGRAM SELECT FAULT]=PULSE,1.0sec ;
+/POS
+/END
