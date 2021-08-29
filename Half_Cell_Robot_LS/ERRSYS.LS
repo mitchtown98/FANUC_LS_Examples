@@ -1,0 +1,17 @@
+ERRSYS.LS      Robot Name ROBOT 28-AUG-21 20:35:46  
+
+1" 28-AUG-21 20:35:08 " SYST-039 Operation mode T2 Selected               " " SERVO                         00110110" 
+2" 28-AUG-21 20:35:08 " SYST-042 DEADMAN defeated                         " " SERVO                         00110110" 
+3" 28-AUG-21 20:35:08 " SYST-045 TP enabled in AUTO mode                  " " STOP.G                        00100110" 
+4" 28-AUG-21 20:34:52 " SYST-040 Operation mode AUTO Selected             " " SERVO                         00110110" 
+5" 28-AUG-21 20:34:50 " SYST-176 Software was updated                     " " PAUSE.G                       00100010" 
+6" 28-AUG-21 20:34:50 " SYST-305 System startup in progress               " " STOP.G                        00100110" 
+7" 28-AUG-21 20:34:34 " SYST-290 Cycle power to use new DCS parameter     " " STOP.G                        00100110" 
+8" 28-AUG-21 20:34:14 " SYST-305 System startup in progress               " " STOP.G                        00100110" 
+9" 28-AUG-21 20:34:14 " SYST-305 System startup in progress               " " STOP.G                        00100110" 
+10" 28-AUG-21 20:34:14 " SYST-039 Operation mode T2 Selected               " " SERVO                         00110110" 
+11" 28-AUG-21 20:34:10 " VARS-005 $DB_RECORD PC array length ignored       " VARS-023 Array len creation mismatch              " WARN                          00000000" 
+12" 28-AUG-21 20:34:10 " VARS-054 Sysvars - V8.30349      1/16/2021 loaded " " WARN                          00000000" 
+13" 28-AUG-21 20:33:56 " OPTN-017 No UPDATES on this media                 " " WARN                          00000000" 
+14" 28-AUG-21 20:33:38 " OPTN-018 No CUSTO additions on this media         " " WARN                          00000000" 
+15" 28-AUG-21 20:33:38 " OPTN-018 No Language additions on this media      " " WARN                          00000000" 
