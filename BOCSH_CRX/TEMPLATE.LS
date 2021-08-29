@@ -1,7 +1,7 @@
 /PROG  TEMPLATE
 /ATTR
 OWNER		= MNEDITOR;
-COMMENT		= "";
+COMMENT		= "Template for Progs";
 PROG_SIZE	= 363;
 CREATE		= DATE 21-08-29  TIME 13:28:02;
 MODIFIED	= DATE 21-08-29  TIME 13:28:32;
@@ -24,16 +24,16 @@ LOCAL_REGISTERS	= 0,0,0;
 AUTO_SINGULARITY_HEADER;
   ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
 /MN
-   1:   ;
-   2:   ;
-   3:   ;
+   1:   !--------------------!;
+   2:   !  Program Header;
+   3:   !--------------------!;
    4:   ;
    5:   ;
    6:   ;
    7:   ;
    8:   ;
    9:   ;
-  10:   ;
+  10:   !----INFORMATION----;
   11:   ;
   12:   ;
   13:   ;
@@ -45,8 +45,8 @@ AUTO_SINGULARITY_HEADER;
   19:   ;
   20:   ;
   21:   ;
-  22:   ;
-  23:   ;
+  22:   END;
+  23:   !---TOUCH UP AREA----;
   24:   ;
   25:   ;
 /POS
