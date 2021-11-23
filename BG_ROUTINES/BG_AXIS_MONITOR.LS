@@ -65,7 +65,7 @@ AUTO_SINGULARITY_HEADER;
   28:  ELSE ;
   29:  F[5:Zone3Safe]=(OFF) ;
   30:  ENDIF ;
-  31:   ;
+  31:   ; 
   32:  !--Zone is Unsafe-- ;
   33:  IF (R[1:Zone3_Status]=1) THEN ;
   34:  F[6:Zone3Unsafe]=(ON) ;
