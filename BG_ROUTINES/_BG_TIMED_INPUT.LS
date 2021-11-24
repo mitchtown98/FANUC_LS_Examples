@@ -1,0 +1,39 @@
+/PROG  _BG_TIMED_INPUT
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 341;
+CREATE		= DATE 21-11-24  TIME 15:15:48;
+MODIFIED	= DATE 21-11-24  TIME 15:43:52;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 10;
+MEMORY_SIZE	= 673;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+LOCAL_REGISTERS	= 0,0,0;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : FALSE;
+/MN
+   1:  !---Example of Timed Input---! ;
+   2:   ;
+   3:  IF (DI[308:BounceInput]=ON) THEN ;
+   4:  R[2:debounce]=(R[2:debounce]+1) ;
+   5:  ELSE ;
+   6:  R[2:debounce]=1    ;
+   7:  ENDIF ;
+   8:   ;
+   9:  IF (R[2:debounce] MOD R[4:MOD Time]=0),F[99]=(ON) ;
+  10:   ;
+/POS
+/END

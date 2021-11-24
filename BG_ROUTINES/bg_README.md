@@ -57,6 +57,24 @@
 - The example shows a count incrementing by one every one shot.  The user application will dictate the output.
 <!--END ONESHOT -->
 ---
+
+## [_BG_TIMED_INPUT.LS](_BG_TIMED_INPUT.LS)
+>SYNOPSIS
+- Monitor an Input for *n* duration before triggering output.
+
+![_BG_TIMED_INPUT Image](/Images/TimedInput.png)
+
+![_BG_TIMED_INPUT Image](/Images/TimedResult.png)
+
+
+>USES
+- You could use this for a button press of *n* time before turning on an output.
+- You have an Analog pressure switch with a large hystersis.  
+
+>VARIANTS
+- You could use the System Variable $FAST_CLOCK as a counter to check elapsed time before triggering an output.
+<!--END TOGGLE -->
+---
 ## [_BG_TOGGLE.LS](_BG_TOGGLE.LS)
 >USES
 
