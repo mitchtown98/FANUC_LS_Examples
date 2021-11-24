@@ -1,4 +1,5 @@
-# FANUC TPP 
+# BG_ROUTINES
+[Back to Fanuc LS Example README](/main_README.md)
 ## This repo holds useful Fanuc TP programs mainly used in Background Logic.
 >Background Logic routines typically start with "BG."
 
@@ -16,7 +17,7 @@
 ---
 ## _BG_ONESHOT
 
-![This is an Image](/Images/OneShot.png)
+![_BG_ONESHOT Image](/Images/OneShot.png)
 >USES
 - Detects one press of a button or an input going high.  
 
