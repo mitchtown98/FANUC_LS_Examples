@@ -12,3 +12,15 @@
 - *Continuous Position Monitoring.*
 
 -  *CPC Zone Status.*
+
+---
+## _BG_ONESHOT
+
+![This is an Image](/Images/OneShot.png)
+>USES
+- Detects one press of a button or an input going high.  
+
+>VARIANTS
+- The example shows a count incrementing by one every one shot.  The user application will dictate the output.
+---
+## _BG_TOGGLE
