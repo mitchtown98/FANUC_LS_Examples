@@ -73,7 +73,7 @@
 
 >VARIANTS
 - You could use the System Variable $FAST_CLOCK as a counter to check elapsed time before triggering an output.
-<!--END TOGGLE -->
+<!--END TIMED INPUT -->
 ---
 ## [_BG_TOGGLE.LS](_BG_TOGGLE.LS)
 >USES
