@@ -11,4 +11,17 @@
 >
 ---
 ## REPO LIST
->BackGround Routines - [BG Routines Readme](BG_ROUTINES/bg_README)
+>BackGround Routines - [BG Routines README](BG_ROUTINES/bg_README)
+>
+- Axis Monitor - [_BG_AXIS_MONITOR.LS](BG_ROUTINES/_BG_AXIS_MONITOR.LS)
+  
+- CPC Monitor
+
+- One Shot
+
+- Toggle
+
+
+
+
+
