@@ -15,7 +15,7 @@
 -  *CPC Zone Status.*
 
 ---
-## _BG_ONESHOT
+## [_BG_ONESHOT.LS](_BG_ONESHOT.LS) 
 
 ![_BG_ONESHOT Image](/Images/OneShot.png)
 >USES
@@ -24,4 +24,4 @@
 >VARIANTS
 - The example shows a count incrementing by one every one shot.  The user application will dictate the output.
 ---
-## _BG_TOGGLE
+## [_BG_TOGGLE.LS](_BG_TOGGLE.LS)
