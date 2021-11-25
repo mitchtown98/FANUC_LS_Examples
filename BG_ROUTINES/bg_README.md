@@ -34,26 +34,27 @@
 ## [_BG_CPC_MONITOR.LS](_BG_CPC_MONITOR.LS)
 >SYNOPSIS
 - Using DCS CPC zones for status.
-- 
 ![_BC_CPC_MONITOR Image](/Images/CPC_Monitor.png)
 >> ![CPC Safe Image](/Images/CPC_Safe.png) ![CPC Disabled Image](/Images/CPC_Disabled.png) ![CPC Unsafe Image](/Images/CPC_Unsafe.png)
+
 >USES
 - This could be used during pick and place routines, and/or for a recovery routine.
 >VARIANTS
 - There are a plethora of ways to be creative for using DCS flags for monitoring. This is just one example.
-- 
----
 <!--END CPC MONITOR -->
-
+---
 ## [_BG_ONESHOT.LS](_BG_ONESHOT.LS) 
 >SYNOPSIS
  - Example of detecting a rising edge/one shot of an input.
 
 ![_BG_ONESHOT Image](/Images/OneShot.png)
+
 >USES
+
 - Detects one press of a button or an input going high.  
 
 >VARIANTS
+
 - The example shows a count incrementing by one every one shot.  The user application will dictate the output.
 <!--END ONESHOT -->
 ---
