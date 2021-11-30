@@ -1,0 +1,37 @@
+/PROG  WAIT_ON_CNC	  Macro
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "Waiting for CNCl";
+PROG_SIZE	= 299;
+CREATE		= DATE 19-12-12  TIME 12:05:12;
+MODIFIED	= DATE 20-01-28  TIME 08:34:54;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 9;
+MEMORY_SIZE	= 635;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  !WAITF FOR CNC LOAD SIGNAL ;
+   2:  DO[137:waiting]=ON ;
+   3:  WAIT    .20(sec) ;
+   4:  WAIT DI[122:Load Request]=ON    ;
+   5:  WAIT DI[121:Machine In Pos]=ON    ;
+   6:   ;
+   7:  DO[121:Loading]=PULSE,0.1sec ;
+   8:   ;
+   9:  DO[137:waiting]=OFF ;
+/POS
+/END

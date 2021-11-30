@@ -1,5 +1,5 @@
 # BG_ROUTINES
-[Back to Fanuc LS Example README](/main_README.md)
+[Back to Fanuc LS Example README](/README.md)
 ## This repo holds useful Fanuc TP programs mainly used in Background Logic.
 >Background Logic routines typically start with "BG."
 
@@ -31,6 +31,7 @@
 - Another way to get position data is call a subroutine to get LPOS or JPOS, but the data is only as recent as the last call.
 <!--END AXIS MONITOR -->
 ---
+---
 ## [_BG_CPC_MONITOR.LS](_BG_CPC_MONITOR.LS)
 >SYNOPSIS
 - Using DCS CPC zones for status.
@@ -42,6 +43,7 @@
 >VARIANTS
 - There are a plethora of ways to be creative for using DCS flags for monitoring. This is just one example.
 <!--END CPC MONITOR -->
+---
 ---
 ## [_BG_ONESHOT.LS](_BG_ONESHOT.LS) 
 >SYNOPSIS
@@ -57,6 +59,7 @@
 
 - The example shows a count incrementing by one every one shot.  The user application will dictate the output.
 <!--END ONESHOT -->
+---
 ---
 
 ## [_BG_TIMED_INPUT.LS](_BG_TIMED_INPUT.LS)
@@ -75,6 +78,7 @@
 >VARIANTS
 - You could use the System Variable $FAST_CLOCK as a counter to check elapsed time before triggering an output.
 <!--END TIMED INPUT -->
+---
 ---
 ## [_BG_TOGGLE.LS](_BG_TOGGLE.LS)
 >USES

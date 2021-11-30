@@ -1,0 +1,54 @@
+/PROG  PLACE_PICK
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "PROGRAM PICK";
+PROG_SIZE	= 617;
+CREATE		= DATE 19-12-13  TIME 10:00:54;
+MODIFIED	= DATE 20-01-14  TIME 08:39:02;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 26;
+MEMORY_SIZE	= 925;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  !PLACE PICK PART IN PALLET ;
+   2:   ;
+   3:  UFRAME_NUM=1 ;
+   4:  UTOOL_NUM=1 ;
+   5:   ;
+   6:  //IF DI[101:PalletInPlace]=OFF,CALL ERROR(6) ;
+   7:   ;
+   8:  CALL GET_PLACE_PT(R[36:PICK POS]) ;
+   9:  CALL GET_APPCH_PT(6,3) ;
+  10:   ;
+  11:  CALL PLACE_PART(3) ;
+  12:   ;
+  13:  !Open Gripper & Change Payload ;
+  14:  OpenHand    ;
+  15:  Light    ;
+  16:   ;
+  17:  CALL CHK_GRIP_STATUS(1,0,1,1) ;
+  18:   ;
+  19:  R[11:PART PRES T1]=0    ;
+  20:   ;
+  21:L PR[3:PICK PT] 400mm/sec CNT50 Offset,PR[11:OFFSET Z]    ;
+  22:   ;
+  23:L PR[3:PICK PT] 400mm/sec CNT50 Offset,PR[10:OFFSET Y Z]    ;
+  24:   ;
+  25:L PR[6:APP PICK PT] 500mm/sec FINE RT_LDR[3]    ;
+  26:   ;
+/POS
+/END

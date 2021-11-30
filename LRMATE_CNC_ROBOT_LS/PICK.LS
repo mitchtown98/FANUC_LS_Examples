@@ -1,0 +1,57 @@
+/PROG  PICK	  Macro
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "PICK MACRO ";
+PROG_SIZE	= 709;
+CREATE		= DATE 19-12-11  TIME 15:22:24;
+MODIFIED	= DATE 20-01-11  TIME 11:41:42;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 29;
+MEMORY_SIZE	= 1153;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  !PICK PART FROM PALLET ;
+   2:  UFRAME_NUM=1 ;
+   3:  UTOOL_NUM=1 ;
+   4:   ;
+   5:  CALL CHK_GRIP_STATUS(1,0,1,1) ;
+   6:   ;
+   7:  //IF DI[101:PalletInPlace]=OFF,CALL ERROR(6) ;
+   8:  CALL CHK_PALLET_POSITION(R[36:PICK POS]) ;
+   9:   ;
+  10:  IF DO[125:PalletEmpty]=ON,JMP LBL[10] ;
+  11:   ;
+  12:  CALL GET_PICK_PT    ;
+  13:   ;
+  14:  CALL GET_APPCH_PT(6,3) ;
+  15:   ;
+  16:  CALL GO_MID_PT    ;
+  17:   ;
+  18:  CALL GET_PART(6,3) ;
+  19:   ;
+  20:  !Close Gripper & Change Payload ;
+  21:  CloseHand    ;
+  22:  Heavy    ;
+  23:   ;
+  24:  CALL CHK_GRIP_STATUS(0,0,1,8) ;
+  25:  R[11:PART PRES T1]=(!DO[125:PalletEmpty]) ;
+  26:   ;
+  27:L PR[3:PICK PT] 200mm/sec FINE Offset,PR[7:SAFE Z OFFSET] RT_LDR[2]    ;
+  28:   ;
+  29:  LBL[10] ;
+/POS
+/END

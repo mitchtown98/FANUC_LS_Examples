@@ -1,0 +1,57 @@
+/PROG  PLACE	  Macro
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "PLACE MACRO";
+PROG_SIZE	= 691;
+CREATE		= DATE 19-12-12  TIME 16:49:58;
+MODIFIED	= DATE 20-01-14  TIME 08:37:50;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 29;
+MEMORY_SIZE	= 995;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  !PLACE PART IN PALLET ;
+   2:   ;
+   3:  IF R[11:PART PRES T1]=0,CALL ERROR(4) ;
+   4:  UFRAME_NUM=1 ;
+   5:  UTOOL_NUM=1 ;
+   6:   ;
+   7:  CALL CHK_PALLET_POSITION(R[38:PLACE POS]) ;
+   8:   ;
+   9:  //IF DI[101:PalletInPlace]=OFF,CALL ERROR(6) ;
+  10:   ;
+  11:  CALL GET_PLACE_PT(R[38:PLACE POS]) ;
+  12:   ;
+  13:  CALL GO_MID_PT    ;
+  14:  CALL PLACE_PART(4) ;
+  15:   ;
+  16:  !OpenGripper & Change Payload ;
+  17:  OpenHand    ;
+  18:  Light    ;
+  19:   ;
+  20:  CALL CHK_GRIP_STATUS(1,0,1,1) ;
+  21:   ;
+  22:  R[11:PART PRES T1]=0    ;
+  23:   ;
+  24:L PR[4:PLACE PT] 400mm/sec CNT40 Offset,PR[11:OFFSET Z]    ;
+  25:   ;
+  26:L PR[4:PLACE PT] 400mm/sec CNT40 Offset,PR[10:OFFSET Y Z]    ;
+  27:   ;
+  28:L PR[6:APP PICK PT] 500mm/sec FINE RT_LDR[3]    ;
+  29:  R[38:PLACE POS]=R[38:PLACE POS]+1    ;
+/POS
+/END
