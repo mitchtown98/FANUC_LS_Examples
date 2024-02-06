@@ -1,4 +1,4 @@
-/PROG  BG_AXIS_MONITOR
+/PROG _BG_AXIS_MONITOR
 /ATTR
 OWNER		= MNEDITOR;
 COMMENT		= "Background Logic";
@@ -18,7 +18,6 @@ TCD:  STACK_SIZE	= 0,
       PAUSE_REQUEST	= 0;
 DEFAULT_GROUP	= *,*,*,*,*;
 CONTROL_CODE	= 00000000 00000000;
-LOCAL_REGISTERS	= 0,0,0;
 /APPL
 /APPL
 
@@ -46,6 +45,5 @@ AUTO_SINGULARITY_HEADER;
   19:  R[184:W_Pos]=$DIAG_GRP[1].$CUR_TCP_W ;
   20:  R[185:P_Pos]=$DIAG_GRP[1].$CUR_TCP_P ;
   21:  R[186:R_Pos]=$DIAG_GRP[1].$CUR_TCP_R ;
-  22:  !---------------------------- ;
 /POS
 /END

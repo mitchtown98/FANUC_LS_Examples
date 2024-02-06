@@ -1,0 +1,64 @@
+/PROG  TEACHFRAME
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 729;
+CREATE		= DATE 21-03-26  TIME 17:54:24;
+MODIFIED	= DATE 21-04-13  TIME 10:32:26;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 32;
+MEMORY_SIZE	= 1101;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : FALSE;
+
+  AUTOZONE_INTERFERENCE_AVOID;
+    AUTOZONE_ENABLED         : FALSE;
+    AUTOZONE_SCHEDULE_NUMBER : 1;
+/MN
+   1:  UFRAME_NUM=0 ;
+   2:  UTOOL_NUM=10 ;
+   3:  !Pallet Conveyor ;
+   4:J PR[160:UF2Tch O] 100% FINE    ;
+   5:J PR[161:UF2Tch X] 100% FINE    ;
+   6:J PR[162:UF2Tch Y] 100% FINE    ;
+   7:   ;
+   8:  !Scan Fixture ;
+   9:J PR[163:UF3Tch O] 100% FINE    ;
+  10:J PR[164:UF3Tch X] 100% FINE    ;
+  11:J PR[165:UF3Tch Y] 100% FINE    ;
+  12:   ;
+  13:  !DeLidding Fixture ;
+  14:J PR[166:UF4Tch O] 100% FINE    ;
+  15:J PR[167:UF4Tch X] 100% FINE    ;
+  16:J PR[168:UF4Tch Y] 100% FINE    ;
+  17:   ;
+  18:  !Lid Conveyor ;
+  19:J PR[169:UF5Tch O] 100% FINE    ;
+  20:J PR[170:UF5Tch X] 100% FINE    ;
+  21:J PR[171:UF5Tch Y] 100% FINE    ;
+  22:   ;
+  23:  !Reject Conveyor ;
+  24:J PR[172:UF6Tch O] 100% FINE    ;
+  25:J PR[173:UF6Tch X] 100% FINE    ;
+  26:J PR[174:UF6Tch Y] 100% FINE    ;
+  27:   ;
+  28:  !ReEntry Conveyor ;
+  29:J PR[175:UF7Tch O] 100% FINE    ;
+  30:J PR[176:UF7Tch X] 100% FINE    ;
+  31:J PR[177:UF7Tch Y] 100% FINE    ;
+  32:   ;
+/POS
+/END

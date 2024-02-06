@@ -1,0 +1,39 @@
+/PROG  _BG_BITE
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "BG Sub";
+PROG_SIZE	= 418;
+CREATE		= DATE 23-06-23  TIME 15:50:36;
+MODIFIED	= DATE 23-06-26  TIME 14:12:18;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 15;
+MEMORY_SIZE	= 762;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= *,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+LOCAL_REGISTERS	= 0,0,0;
+/MN
+   1:  $mcr_grp[1].$prgoverride=R[1:PrgOvr] ;
+   2:   ;
+   3:  R[10:Hi]=(GI[1:HiPos1]-(GI[1:HiPos1] DIV 32768)*65536) ;
+   4:   ;
+   5:  R[11:Lo]=(GI[2:LoPOS1]-(GI[2:LoPOS1] DIV 32768)*65536) ;
+   6:   ;
+   7:  R[12]=(GI[3:HiPOS2]-(GI[3:HiPOS2] DIV 32768)*65536) ;
+   8:   ;
+   9:  R[13]=(GI[4:LoPOS2]-(GI[4:LoPOS2] DIV 32768)*65536) ;
+  10:   ;
+  11:   ;
+  12:   ;
+  13:   ;
+  14:   ;
+  15:   ;
+/POS
+/END

@@ -1,0 +1,72 @@
+------------------------------------------------------------------  
+--  KAREL PROGRAM:  KL_LOG_ROBOT_POS.KL
+--        
+--  SYNOPSIS:       This program will log the robot position. Logging
+--                  starts and stops with a variable.  
+--
+--  AUTHOR:         JASON MITCHELL; jason.mitchell@fanucamerica.com 
+--
+--  DATE:           11/2/2021
+--                 
+--  COMPANY:        FANUC AMERICA
+
+------------------------------------------------------------------  
+PROGRAM KL_LOG_ROBOT_POS
+------------------------------------------------------------------  
+%ALPHABETIZE
+%COMMENT = 'Position Logger'
+%NOPAUSE = ERROR + COMMAND + TPENABLE
+--%NOABORT = ERROR + COMMAND + TPENABLE
+%NOLOCKGROUP 
+%NOBUSYLAMP
+------------------------------------------------------------------     
+--%INCLUDE KLEVKEYS  --Karel key code definition file
+%INCLUDE KLEVCCDF  --Karel character constant definition file
+--%INCLUDE SYSDEF
+------------------------------------------------------------------
+CONST
+  TD_LOG = 'TD:ROB_POS.CSV'
+  UD_LOG = 'UD1:ROB_POS.CSV'
+  UD_DEV = 'UD1:'
+
+VAR
+  klLogFile:  FILE
+  outputLog:  FILE
+  logStart:   INTEGER 
+  logEnd:     INTEGER
+  fstatus:    INTEGER
+-----------------------------------------MAIN-----------------------------------------
+BEGIN
+--INIT--
+  logStart = 0 
+  logEnd = 0
+  fstatus = 0 
+  $SCR_GRP[1].$M_POS_ENB = TRUE  
+  DELETE_FILE(UD_LOG, FALSE, fstatus)
+  
+  REPEAT
+  
+    IF(logStart = 1)THEN           
+     OPEN FILE klLogFile('AP', TD_LOG)
+      WRITE klLogFile(
+        $FAST_CLOCK::2,',',
+        $SCR_GRP[1].$MCH_POS_X::9::3,',',
+        $SCR_GRP[1].$MCH_POS_Y::9::3,',',
+        $SCR_GRP[1].$MCH_POS_Z::9::3,',',
+        $SCR_GRP[1].$MCH_POS_W::9::3,',',
+        $SCR_GRP[1].$MCH_POS_P::9::3,',',
+        $SCR_GRP[1].$MCH_POS_R::9::3)
+      WRITE klLogFile(CR)
+      CLOSE FILE klLogFile       
+    ENDIF
+
+    IF((logEnd = 1) AND (logStart = 1))THEN 
+      logStart = 0                 
+      COPY_FILE(TD_LOG, 'UD1:', TRUE, FALSE, fstatus)  
+      DELETE_FILE(TD_LOG, FALSE, fstatus)
+    ENDIF
+
+    DELAY 8
+  UNTIL(logEnd = 1)  
+  
+END KL_LOG_ROBOT_POS

@@ -1,0 +1,42 @@
+/PROG  _LOC_SET
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 437;
+CREATE		= DATE 21-05-10  TIME 16:33:18;
+MODIFIED	= DATE 21-06-08  TIME 11:31:06;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 10;
+MEMORY_SIZE	= 777;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+
+  AUTOZONE_INTERFERENCE_AVOID;
+    AUTOZONE_ENABLED         : FALSE;
+    AUTOZONE_SCHEDULE_NUMBER : 1;
+/MN
+   1:  !Args ;
+   2:  !1 = Reg For Bin Center ;
+   3:  !2 = Reg for Tub Master ;
+   4:  !4 = Reg for Tub Place ;
+   5:  !5 = PR to set Tub Loc ;
+   6:  !6 = Debug ;
+   7:   ;
+   8:  !!! Call Karel Init !!! ;
+   9:  CALL KL_PAL_LOC_SET(28,29,40,101,1) ;
+  10:   ;
+/POS
+/END

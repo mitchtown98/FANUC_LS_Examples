@@ -1,0 +1,64 @@
+/PROG  _V_SET_REF_RIGHT
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 774;
+CREATE		= DATE 23-09-13  TIME 14:58:42;
+MODIFIED	= DATE 23-09-13  TIME 15:05:52;
+FILE_NAME	= _V_SET_R;
+VERSION		= 0;
+LINE_COUNT	= 30;
+MEMORY_SIZE	= 1166;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+LOCAL_REGISTERS	= 0,0,0;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : FALSE;
+
+PLTZ_MODE_HEADER;
+ PLTZ_MODE_ENABLE   : FALSE;
+ J4TURN  : ZERORAD;
+ ORIENT  : DOWNWARDS;
+/MN
+   1:  UFRAME_NUM=1 ;
+   2:  UTOOL_NUM=1 ;
+   3:   ;
+   4:  PR[3,4:RightPickRef]=180    ;
+   5:  PR[3,5:RightPickRef]=0    ;
+   6:J PR[3:RightPickRef] 100% FINE    ;
+   7:  PAUSE ;
+   8:  !align box center to cups ;
+   9:   ;
+  10:  UTOOL_NUM=9 ;
+  11:  PR[90:TempCamPos]=PR[3:RightPickRef]    ;
+  12:  PR[90,4:TempCamPos]=0    ;
+  13:  PR[90,5:TempCamPos]=0    ;
+  14:  PR[90,6:TempCamPos]=0    ;
+  15:J PR[90:TempCamPos] 50% FINE    ;
+  16:  CALL IRVBKLSH(1) ;
+  17:  WAIT    .50(sec) ;
+  18:  VISION RUN_FIND 'FINDRIGHTBOX'    ;
+  19:  VISION SET_REFERENCE 'FINDRIGHTBOX' ;
+  20:   ;
+  21:  LBL[99] ;
+  22:  PAUSE ;
+  23:  UTOOL_NUM=1 ;
+  24:  !bump and test pick ;
+  25:  VISION RUN_FIND 'FINDRIGHTBOX'    ;
+  26:  VISION GET_OFFSET 'FINDRIGHTBOX' VR[1] JMP LBL[99] ;
+  27:L PR[3:RightPickRef] 500mm/sec CNT5 Offset,PR[13:pkBoxApp1] VOFFSET,VR[1]    ;
+  28:L PR[3:RightPickRef] 250mm/sec FINE VOFFSET,VR[1]    ;
+  29:  PAUSE ;
+  30:L PR[3:RightPickRef] 500mm/sec CNT5 Offset,PR[13:pkBoxApp1] VOFFSET,VR[1]    ;
+/POS
+/END

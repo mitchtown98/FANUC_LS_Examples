@@ -1,0 +1,35 @@
+/PROG  _GRIP_OPEN	  Macro
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 281;
+CREATE		= DATE 16-12-01  TIME 21:27:30;
+MODIFIED	= DATE 16-12-02  TIME 23:08:22;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 7;
+MEMORY_SIZE	= 625;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= *,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  RO[1:Gripper Open]=ON ;
+   2:  RO[2:Gripper Close]=OFF ;
+   3:  IF (!RI[2:Gripper Opened]) THEN ;
+   4:  WAIT    .70(sec) ;
+   5:  ENDIF ;
+   6:  R[2:EOATstatus]=0    ;
+   7:  IF (!RI[2:Gripper Opened] OR RI[3:Gripper Closed]),R[2:EOATstatus]=((-1)) ;
+/POS
+/END

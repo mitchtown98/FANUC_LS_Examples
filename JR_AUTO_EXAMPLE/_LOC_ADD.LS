@@ -1,0 +1,40 @@
+/PROG  _LOC_ADD
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 391;
+CREATE		= DATE 21-05-12  TIME 11:02:02;
+MODIFIED	= DATE 21-05-14  TIME 10:19:50;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 8;
+MEMORY_SIZE	= 739;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+
+  AUTOZONE_INTERFERENCE_AVOID;
+    AUTOZONE_ENABLED         : FALSE;
+    AUTOZONE_SCHEDULE_NUMBER : 1;
+/MN
+   1:  !!!Args ;
+   2:  !1=Reg for X Actual Count ;
+   3:  !2=Reg for Y Actual Count ;
+   4:  !3=Debug (1 On, 0 Off) ;
+   5:   ;
+   6:  !Call Karel Program ;
+   7:  CALL KL_PAL_LOC_ADD(R[13:regCountX],R[14:regCountY],2,1) ;
+   8:   ;
+/POS
+/END

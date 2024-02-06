@@ -1,0 +1,47 @@
+/PROG  _BG_SCANNERS
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 539;
+CREATE		= DATE 16-12-02  TIME 21:38:02;
+MODIFIED	= DATE 17-06-24  TIME 03:50:36;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 19;
+MEMORY_SIZE	= 999;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 1,
+      ABORT_REQUEST	= 7,
+      PAUSE_REQUEST	= 7;
+DEFAULT_GROUP	= *,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  LBL[1] ;
+   2:  R[198:SlowDownDelay]=1    ;
+   3:  R[199:SafeOvrd]=5    ;
+   4:  DO[105:Scanner Power]=ON ;
+   5:  IF (!SO[7:TP enabled]) THEN ;
+   6:  IF (DI[261:Scanner1 Warn-1] OR DI[263:Scanner2 Warn-1]) THEN ;
+   7:  IF ($MCR.$GENOVERRIDE>R[199:SafeOvrd]) THEN ;
+   8:  $MCR.$GENOVERRIDE=R[199:SafeOvrd] ;
+   9:  WAIT R[198] ;
+  10:  ENDIF ;
+  11:  DO[121:NSI1]=(DI[261:Scanner1 Warn-1]) ;
+  12:  DO[122:NSI2]=(DI[263:Scanner2 Warn-1]) ;
+  13:  ELSE ;
+  14:  DO[121:NSI1]=(DI[261:Scanner1 Warn-1]) ;
+  15:  DO[122:NSI2]=(DI[263:Scanner2 Warn-1]) ;
+  16:  $MCR.$GENOVERRIDE=R[200:GenOvrd] ;
+  17:  ENDIF ;
+  18:  ENDIF ;
+  19:  JMP LBL[1] ;
+/POS
+/END

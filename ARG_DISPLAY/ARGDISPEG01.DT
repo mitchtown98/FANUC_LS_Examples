@@ -1,0 +1,10 @@
+{_GET_DIFF}
+[PROGRAM] 
+NAME = "_GET_DIFF"
+ARGUMENT = 3'
+[ARGUMENT]
+N01 = "Reg for X" 
+N02 = "Reg for Y"
+N03 = "PR for Adj"
+[ENDPROGRAM]
+

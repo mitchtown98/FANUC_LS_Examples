@@ -1,0 +1,56 @@
+--    This material is the joint property of Fanuc Robotics Corporation  and
+--    FANUC  LTD  Japan,  and  must  be  returned  to  either Fanuc Robotics
+--    Corporation or FANUC LTD Japan immediately upon request.  This  material
+--    and   the  information  illustrated  or  contained  herein  may  not  be
+--    reproduced, copied, used, or transmitted in whole or in part in any  way
+--    without the prior written consent of both Fanuc Robotics and FANUC.
+--    
+--             All Rights Reserved
+--             Copyright (C)   2022
+--             Fanuc Robotics Corporation
+--             FANUC LTD Japan
+--    
+--             Karel is a registered trademark of
+--             Fanuc Robotics Corporation
+--    +
+--    Program:  PMFCTNSIM 
+--    
+--    Description:
+--     
+--    Language: KAREL
+--    
+--    Source File:   PTFCTNSIM.KL    15-NOV-22   10:00AM
+-- 
+--    Description: 
+--    This program simulates  hitting a function key on the TP               
+--    
+--    Author: DRISCOWM
+--            Fanuc Robotics North America, Inc.
+--            3900 West Hamlin Road
+--            Rochester Hills, Michigan    48309-3253
+--    
+--    Modification history:
+--    
+
+-----------------------------------------------------------------
+PROGRAM PMFCTNSIM
+------------------------------------------------------------------
+%PRIORITY = 100
+%COMMENT = 'Simulate Function Key'
+%STACKSIZE = 200
+%NOLOCKGROUP
+%NOBUSYLAMP
+
+%ENVIRONMENT uif
+
+BEGIN
+SIM_KEY('TPKB', KY_F1)
+END PMFCTNSIM
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+/PROG  SET_POS
+/ATTR
+OWNER		= KAREL;
+COMMENT		= "";
+PROG_SIZE	= 485;
+CREATE		= DATE 21-01-08  TIME 10:22:10;
+MODIFIED	= DATE 21-03-26  TIME 21:51:00;
+FILE_NAME	= ;
+VERSION		= 0;
+LINE_COUNT	= 3;
+MEMORY_SIZE	= 845;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/MN
+   1:  UFRAME_NUM=2 ;
+   2:  UTOOL_NUM=2 ;
+   3:L P[1] 100mm/sec FINE    ;
+/POS
+P[1]{
+   GP1:
+	UF : 2, UT : 2,		CONFIG : 'N U T, 0, 0, 0',
+	X =   602.425  mm,	Y =   379.201  mm,	Z =   267.837  mm,
+	W =  -179.921 deg,	P =      .423 deg,	R =    -1.843 deg
+};
+/END

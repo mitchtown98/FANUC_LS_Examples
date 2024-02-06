@@ -1,0 +1,68 @@
+------------------------------------------------------------------
+--   KL PROGRAM:  ABORT_CONVEYOR
+
+--   SYNOPSIS:     Synopsis
+--
+--   PARAMETERS:   Parameters
+--
+--
+--
+--   AUTHOR:       Author
+
+--                 Date Created: 2023/01/10
+--                 Last modified: 2023/01/10 15:18:03
+
+--   COMPANY:      FANUC AMERICA
+
+------------------------------------------------------------------
+PROGRAM ABORT_CONVEYOR
+------------------------------------------------------------------
+%COMMENT = 'Abort Conveyor'
+%ALPHABETIZE
+--%NOABORT = ERROR + COMMAND + TPENABLE
+--%NOLOCKGROUP                         --Specifies no motion is locked
+--%UNINITVARS                          --Specifies that all vars are uninit by default
+%NOPAUSE = ERROR + COMMAND + TPENABLE  --Specifies Mask for Pausing
+                                           --ERROR: ignore pause severity
+                                           --COMMAND: ignore pause command
+                                           --TPENABLE: ignore paused req w/TP enabled
+--%DELAY                               --Time to delay program
+%INCLUDE KLEVKEYS                      --Key code defininition file
+%INCLUDE KLEVKMSK                      --Mask values used for form manager term_masks
+%INCLUDE KLEVCCDF                      --Character code constants 
+%INCLUDE KLIOUOP                       --Constants used for UOP I/O
+%INCLUDE KLIOTYPS                      --Constants defining I/O types
+------------------------------------------------------------------
+CONST                                  --Most constants commonly used. Comment out if not needed
+  SUCCESS      = 0                     --Used for Arg status
+  ER_WARN      = 0                     --Error Warning
+  ER_PAUSE     = 1                     --Error Pause
+  ER_ABORT     = 2                     --Error ABort
+  PRM_INT      = 1                     --Flag for INT Arg
+  PRM_REAL     = 2                     --Flag for REAL Arg
+  PRM_STRING   = 3                     --Flag for STRING Arg
+  MAX_STR_LEN  = 254                   --Max CHAR for STRINGS
+  I_MAX        = 9999                  --Max Integer Value
+  I_MIN        = 1                     --Min Integer Value
+  R_MAX        = 9999.99               --Max Real Value
+  R_MIN        = 1                     --Min Real Value
+  NULL_STRING  = ''                    --Empty String
+  SYS_VAR      = '*SYSTEM*'            --Constant for using System variables
+  USER_LOG     = 'UD1:USERLOG.TXT'     --Pipe Logging
+  PIPE_LOG     = 'PIP:PIPELOG.DAT'     --Text File Logging
+
+VAR
+  status: INTEGER
+  force_SW: BOOLEAN
+  stop_mtn: BOOLEAN
+
+------------------------------------------------------------------
+--                              MAIN                              
+------------------------------------------------------------------
+BEGIN
+  force_SW = TRUE
+  stop_mtn = FALSE
+
+  ABORT_TASK('_BG_CONVEYOR', force_SW, stop_mtn, status)
+  
+END ABORT_CONVEYOR

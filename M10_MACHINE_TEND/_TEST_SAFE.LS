@@ -1,0 +1,45 @@
+/PROG  _TEST_SAFE
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 619;
+CREATE		= DATE 16-12-02  TIME 21:40:26;
+MODIFIED	= DATE 16-12-02  TIME 22:21:56;
+FILE_NAME	= _TEST;
+VERSION		= 0;
+LINE_COUNT	= 5;
+MEMORY_SIZE	= 1111;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : FALSE;
+/MN
+   1:  //RUN _BG_SCANNERS ;
+   2:  LBL[1] ;
+   3:J P[6] 100% FINE    ;
+   4:J P[1] 100% FINE    ;
+   5:  JMP LBL[1] ;
+/POS
+P[1]{
+   GP1:
+	UF : 0, UT : 1,		CONFIG : 'N U T, 0, 0, 0',
+	X =   799.378  mm,	Y =  -165.671  mm,	Z =   373.879  mm,
+	W =  -178.950 deg,	P =     -.248 deg,	R =    90.286 deg
+};
+P[6]{
+   GP1:
+	UF : 0, UT : 1,		CONFIG : 'N U T, 0, 0, 0',
+	X =   -34.737  mm,	Y =  -815.626  mm,	Z =   373.879  mm,
+	W =  -178.950 deg,	P =     -.248 deg,	R =     9.556 deg
+};
+/END

@@ -1,0 +1,43 @@
+/PROG  _BGT_MON_15018
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "";
+PROG_SIZE	= 425;
+CREATE		= DATE 23-09-12  TIME 16:42:32;
+MODIFIED	= DATE 23-09-12  TIME 21:55:20;
+FILE_NAME	= _BGT_STA;
+VERSION		= 0;
+LINE_COUNT	= 14;
+MEMORY_SIZE	= 873;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 1,
+      ABORT_REQUEST	= 7,
+      PAUSE_REQUEST	= 7;
+DEFAULT_GROUP	= *,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+LOCAL_REGISTERS	= 0,0,0;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : FALSE;
+/MN
+   1:  R[101:kill_15018_mon]=0    ;
+   2:  LBL[1] ;
+   3:  WAIT SO[3:Fault LED]=ON OR R[101:kill_15018_mon]=1    ;
+   4:  IF R[101:kill_15018_mon]=1,JMP LBL[100] ;
+   5:  F[2:UOP_RESET]=(ON) ;
+   6:  WAIT    .25(sec) ;
+   7:  F[2:UOP_RESET]=(OFF) ;
+   8:  WAIT    .25(sec) ;
+   9:  F[3:UOP_START]=(ON) ;
+  10:  WAIT    .25(sec) ;
+  11:  F[3:UOP_START]=(OFF) ;
+  12:  R[102:resumed_15018]=R[102:resumed_15018]+1    ;
+  13:   ;
+  14:  LBL[100] ;
+/POS
+/END
