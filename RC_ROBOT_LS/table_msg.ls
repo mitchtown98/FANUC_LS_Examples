@@ -1,0 +1,142 @@
+/PROG  TABLE_MSG
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "FAULT MESSAGES";
+PROG_SIZE	= 4761;
+CREATE		= DATE 21-04-30  TIME 15:49:38;
+MODIFIED	= DATE 23-04-01  TIME 03:23:34;
+FILE_NAME	= HOME_MSG;
+VERSION		= 0;
+LINE_COUNT	= 114;
+MEMORY_SIZE	= 5333;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= *,*,*,*,*;
+CONTROL_CODE	= 00001000 00000000;
+/APPL
+/APPL
+
+AUTO_SINGULARITY_HEADER;
+  ENABLE_SINGULARITY_AVOIDANCE   : TRUE;
+/MN
+   1:  R[44:ALARM NUMBER]=AR[1]    ;
+   2:  JMP LBL[R[44]] ;
+   3:   ;
+   4:  LBL[1] ;
+   5:  CALL FAULT_MESSAGE('Template type has not','been determined. Recover','robot to run template','identification routine.') ;
+   6:  JMP LBL[9999] ;
+   7:   ;
+   8:  LBL[2] ;
+   9:  CALL FAULT_MESSAGE('Table is not ready','for service. Make','sure table is locked','and the position','sensors work.') ;
+  10:  JMP LBL[9999] ;
+  11:   ;
+  12:  LBL[3] ;
+  13:  CALL FAULT_MESSAGE('Part length could not be','found with the laser. Make','sure part is in "Setup Part"','slot. Inspect laser, part,','and template.') ;
+  14:  JMP LBL[9999] ;
+  15:   ;
+  16:  LBL[4] ;
+  17:  CALL FAULT_MESSAGE('Table setup is not complete.','Recover robot to home and','restart cycle to run','table setup routine.') ;
+  18:  JMP LBL[9999] ;
+  19:   ;
+  20:  LBL[5] ;
+  21:  CALL FAULT_MESSAGE('A gripper is not ungripped.','both grippers must be','ungripped to pick a part','from the table.') ;
+  22:  JMP LBL[9999] ;
+  23:   ;
+  24:  LBL[6] ;
+  25:  CALL FAULT_MESSAGE('Table failed to unlock.','Inspect table lock, pin,','solenoid, And cylinder','position sensors.') ;
+  26:  JMP LBL[9999] ;
+  27:   ;
+  28:  LBL[7] ;
+  29:  CALL FAULT_MESSAGE('Table failed to lock.','Inspect table lock, pin,','solenoid, and cylinder','position sensors.') ;
+  30:  JMP LBL[9999] ;
+  31:   ;
+  32:  LBL[8] ;
+  33:  CALL FAULT_MESSAGE('Table side could not be','determined. Check table','position sensors.') ;
+  34:  JMP LBL[9999] ;
+  35:   ;
+  36:  LBL[9] ;
+  37:  CALL FAULT_MESSAGE('Part length is too short.','Make sure laser is operating','correctly or direct entry','value is within range.') ;
+  38:  JMP LBL[9999] ;
+  39:   ;
+  40:  LBL[10] ;
+  41:  CALL FAULT_MESSAGE('Part too short for pallet.','Gripper pins will hit template','plate. Adjust post height','to allow pin clearance.') ;
+  42:  JMP LBL[9999] ;
+  43:   ;
+  44:  LBL[11] ;
+  45:  CALL FAULT_MESSAGE('Part length is too long.','Make sure laser is operating','correctly or direct entry','value is withIn range.') ;
+  46:  JMP LBL[9999] ;
+  47:   ;
+  48:  LBL[12] ;
+  49:  CALL FAULT_MESSAGE('Part diameter is too small.','Make sure laser is operating','correctly, direct entry','value is within range, or','use a different template.') ;
+  50:  JMP LBL[9999] ;
+  51:   ;
+  52:  LBL[13] ;
+  53:  CALL FAULT_MESSAGE('Part diameter is too large.','Make sure laser is operating','correctly, direct entry','value is withIn range, or','use a different template.') ;
+  54:  JMP LBL[9999] ;
+  55:   ;
+  56:  LBL[14] ;
+  57:  CALL FAULT_MESSAGE('Robot is waiting for parts','to be loaded on the operator','side of table and for the load','complete button to be pressed.') ;
+  58:  JMP LBL[9999] ;
+  59:   ;
+  60:  LBL[15] ;
+  61:  CALL FAULT_MESSAGE('Regrip is not ready for ','service. Make sure a part','is at the regrip or load','gripper is ungripped.') ;
+  62:  JMP LBL[9999] ;
+  63:   ;
+  64:  LBL[16] ;
+  65:  CALL FAULT_MESSAGE('Robot will not service table','because table was manually','indexed. To service this side','manually index table to','operator side, start main','program, then press load','complete from HMI.') ;
+  66:  JMP LBL[9999] ;
+  67:   ;
+  68:  LBL[17] ;
+  69:  CALL FAULT_MESSAGE('Part is present on regrip','stand. Remove part to','continue.') ;
+  70:  JMP LBL[9999] ;
+  71:   ;
+  72:  LBL[18] ;
+  73:  CALL FAULT_MESSAGE('The HMI is set up for','manual entry for the part','length. Enter a length','in the Load Setup Or','select Laser Measure') ;
+  74:  JMP LBL[9999] ;
+  75:   ;
+  76:  LBL[19] ;
+  77:  CALL FAULT_MESSAGE('The HMI is set up for','manual entry for the part','diameter. Enter a diameter','in the Load Setup or','select Laser Measurement.') ;
+  78:  JMP LBL[9999] ;
+  79:   ;
+  80:  LBL[20] ;
+  81:  CALL FAULT_MESSAGE('The HMI is set up for','same part running but','the robot has detected','a new template. Make','sure new part is active.') ;
+  82:  JMP LBL[9999] ;
+  83:   ;
+  84:  LBL[21] ;
+  85:  CALL FAULT_MESSAGE('Robot not safe to move to','rotation position.','Grippers must be empty.') ;
+  86:  JMP LBL[9999] ;
+  87:   ;
+  88:  LBL[22] ;
+  89:  CALL FAULT_MESSAGE('Part length is set to zero.') ;
+  90:  JMP LBL[9999] ;
+  91:   ;
+  92:  LBL[23] ;
+  93:  CALL FAULT_MESSAGE('The HMI is set up for','same part running but','the robot has detected','a different diameter.') ;
+  94:  JMP LBL[9999] ;
+  95:   ;
+  96:  LBL[24] ;
+  97:  CALL FAULT_MESSAGE('The HMI is set up for','same part running but','the robot has detected','a different length.') ;
+  98:  JMP LBL[9999] ;
+  99:   ;
+ 100:  LBL[25] ;
+ 101:  CALL FAULT_MESSAGE('The HMI is set up for','same part running but','the robot has detected','a different ','template height.') ;
+ 102:  JMP LBL[9999] ;
+ 103:   ;
+ 104:  LBL[26] ;
+ 105:  CALL FAULT_MESSAGE('The template height is too low.','Raise the height of template ','and resume new part setup.') ;
+ 106:  JMP LBL[9999] ;
+ 107:   ;
+ 108:  LBL[27] ;
+ 109:  CALL FAULT_MESSAGE('First part slot must be empty.','Remove part from regrip. Place ','in empty slot on rotary or ','remove part from cell.') ;
+ 110:  JMP LBL[9999] ;
+ 111:   ;
+ 112:   ;
+ 113:   ;
+ 114:  LBL[9999:END] ;
+/POS
+/END
